@@ -26,10 +26,12 @@ const translationSchema = new Schema({
     tagline: { type: String },
     title: { type: String },
   },
-  // belongs: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'Movie',
-  // },
+  movies: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Movie',
+    },
+  ],
 });
 
 module.exports = mongoose.model('Translation', translationSchema);

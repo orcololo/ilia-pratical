@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const movieSchema = new Schema({
+  original_id: { type: Number },
   adult: { type: Boolean },
   backdrop_path: { type: String },
   belongs_to_collection: {
@@ -29,10 +30,36 @@ const movieSchema = new Schema({
   video: { type: Boolean },
   vote_average: { type: Number },
   vote_count: { type: Number },
-  genres: { type: [String] },
-  production_companies: { type: String },
-  production_countries: { type: String },
-  spoken_languages: { type: String },
+  genres: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Genres',
+    },
+  ],
+  production_companies: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'ProductionCompanies',
+    },
+  ],
+  production_countries: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'ProductionCountries',
+    },
+  ],
+  spoken_languages: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'SpokenLanguages',
+    },
+  ],
+  translations: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Translation',
+    },
+  ],
 });
 
 module.exports = mongoose.model('Movies', movieSchema);

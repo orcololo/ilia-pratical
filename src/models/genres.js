@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const genresSchema = new Schema({
-  name: String,
-  slug: String,
+  name: { type: String },
+  slug: { type: String },
   movies: [
     {
       type: mongoose.Schema.Types.ObjectId,

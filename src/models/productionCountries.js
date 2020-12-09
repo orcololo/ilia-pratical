@@ -14,6 +14,6 @@ const productionCountriesSchema = new Schema({
 });
 
 module.exports = mongoose.model(
-  'Production_countries',
+  'ProductionCountries',
   productionCountriesSchema
 );

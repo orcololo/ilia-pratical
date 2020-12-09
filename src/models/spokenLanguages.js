@@ -20,4 +20,4 @@ const spokenLanguagesSchema = new Schema({
   ],
 });
 
-module.exports = mongoose.model('SpokenLanguage', spokenLanguagesSchema);
+module.exports = mongoose.model('SpokenLanguages', spokenLanguagesSchema);

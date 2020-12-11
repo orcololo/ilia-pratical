@@ -1,0 +1,72 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "ilia-tmdb-microservice",
+    "description": "A simple microservice to fetch and index contents from themoviedb.org api.",
+    "license": {
+      "name": "GPL 3.0",
+      "url": "https://opensource.org/licenses/GPL-3.0"
+    }
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/movies/{id}": {
+      "get": {
+        "tags": ["Movies"],
+        "description": "Fetch movie info and save it into the database",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Movie ID fetch info",
+            "type": "integer"
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "The resource was already in the database, so it will just return it."
+          },
+          "201": {
+            "description": "The resource was not in the database, but it was fetched and saved."
+          },
+          "404": {
+            "description": "The resource was not found on the tmdb server."
+          }
+        }
+      }
+    },
+    "/movies/translations/{id}": {
+      "get": {
+        "tags": ["Translations"],
+        "description": "Fetch available movie translations info and save it into database",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Movie ID to fetch available translations",
+            "type": "integer"
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "The resource was already in the database, so it will just return it."
+          },
+          "201": {
+            "description": "The resource was not in the database, but it was fetched and saved."
+          },
+          "404": {
+            "description": "The resource was not found in tmdb server."
+          }
+        }
+      }
+    }
+  }
+}

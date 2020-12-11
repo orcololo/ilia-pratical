@@ -31,12 +31,6 @@ const translationSchema = new Schema({
       },
     },
   ],
-  movies: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Movie',
-    },
-  ],
 });
 
 module.exports = mongoose.model('Translation', translationSchema);

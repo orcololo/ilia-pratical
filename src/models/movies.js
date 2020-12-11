@@ -96,12 +96,6 @@ const movieSchema = new Schema({
   vote_count: {
     type: Number,
   },
-  translations: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Translations',
-    },
-  ],
 });
 
 module.exports = mongoose.model('Movies', movieSchema);

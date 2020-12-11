@@ -2,7 +2,19 @@
 
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://gitHub.com/orcololo/)
 
-É um micro serviço dockerizado com network compartilhada entre a aplicação Express.js e banco de dados MongoDB, capaz de capturar e indexar informações sobre filmes e legendas usando a API pública themoviedb.org
+É um micro serviço dockerizado com network compartilhada entre a aplicação e banco de dados, capaz de capturar e indexar informações sobre filmes e legendas usando a API pública themoviedb.org
+
+### Tecnologias e dependências utilizadas:
+
+- JavaScript
+- Node.js
+- Express.js
+- Frisby
+- Jest
+- MongoDB
+- Mongoose
+- Docker
+- Docker-compose
 
 ## **Pré requisitos**:
 

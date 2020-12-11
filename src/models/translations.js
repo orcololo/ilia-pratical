@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const translationSchema = new Schema({
-  id: { type: String },
+  id: { type: Number },
   translations: [
     {
       iso_3166_1: {

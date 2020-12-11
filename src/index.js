@@ -35,9 +35,7 @@ mongoose
 
 app.use('/movies', handleApi, moviesRoutes);
 app.use('/movies/translations', handleApi, translationsRoutes);
-app.use('*', (_req, res) =>
-  res.status(404).json({ message: 'Oops!', status: 404 })
-);
+app.use('*', (_req, res) => res.status(404).json({ message: 'Oops!' }));
 
 const port = HTTP_PORT || 8080;
 app.listen(port, () => {

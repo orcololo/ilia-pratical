@@ -4,6 +4,9 @@ const cors = require('cors');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const moviesRoutes = require('./routes/movies.routes');
+const translationsRoutes = require('./routes/translations.routes');
+const { handleApi } = require('./middlewares/apiHandler');
+
 const {
   MONGO_DB,
   MONGO_HOSTNAME,
@@ -25,20 +28,16 @@ const app = express();
 app.use(cors());
 app.use(morgan('combined'));
 app.use(express.json());
-mongoose.connect(url, options).catch((error) => console.log(error));
+mongoose
+  .connect(url, options)
+  .then(() => console.log(`Mongo is runing on port ${MONGO_PORT}`))
+  .catch((error) => console.log(error));
 
-app.use('/movies', moviesRoutes);
-app.get('/', (req, res) => {
-  res.json({
-    msg: 'LOL',
-  });
-});
-
-// app.get('/movies/:id', async (req, res) => {
-//   const { id } = req.params;
-//   const resp = await getMovieInfo(id);
-//   res.json(resp);
-// });
+app.use('/movies', handleApi, moviesRoutes);
+app.use('/movies/translations', handleApi, translationsRoutes);
+app.use('*', (_req, res) =>
+  res.status(404).json({ message: 'Oops!', status: 404 })
+);
 
 const port = HTTP_PORT || 8080;
 app.listen(port, () => {

@@ -3,61 +3,103 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const movieSchema = new Schema({
-  original_id: { type: Number },
-  adult: { type: Boolean },
-  backdrop_path: { type: String },
+  adult: {
+    type: Boolean,
+  },
+  backdrop_path: {
+    type: String,
+  },
   belongs_to_collection: {
     id: { type: Number },
     name: { type: String },
     poster_path: { type: String },
     backdrop_path: { type: String },
   },
-  budget: { type: Number },
-  homepage: { type: String },
-  id: { type: Number },
-  imdb_id: { type: String },
-  original_language: { type: String },
-  original_title: { type: String },
-  overview: { type: String },
-  popularity: { type: Number },
-  poster_path: { type: String },
-  release_date: { type: Date },
-  revenue: { type: Number },
-  runtime: { type: Number },
-  status: { type: String },
-  tagline: { type: String },
-  title: { type: String },
-  video: { type: Boolean },
-  vote_average: { type: Number },
-  vote_count: { type: Number },
+  budget: {
+    type: Number,
+  },
   genres: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Genres',
+      id: Number,
+      name: String,
     },
   ],
+  homepage: {
+    type: String,
+  },
+  id: {
+    type: Number,
+  },
+  imdb_id: {
+    type: String,
+  },
+  original_language: {
+    type: String,
+  },
+  original_title: {
+    type: String,
+  },
+  overview: {
+    type: String,
+  },
+  popularity: {
+    type: Number,
+  },
+  poster_path: {
+    type: String,
+  },
   production_companies: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'ProductionCompanies',
+      id: Number,
+      logo_path: Object,
+      name: String,
+      origin_country: String,
     },
   ],
   production_countries: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'ProductionCountries',
+      iso_3166_1: String,
+      name: String,
     },
   ],
+  release_date: {
+    type: Date,
+  },
+  revenue: {
+    type: Number,
+  },
+  runtime: {
+    type: Number,
+  },
+
   spoken_languages: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'SpokenLanguages',
+      iso_639_1: String,
+      name: String,
     },
   ],
+  status: {
+    type: String,
+  },
+  tagline: {
+    type: String,
+  },
+  title: {
+    type: String,
+  },
+  video: {
+    type: Boolean,
+  },
+  vote_average: {
+    type: Number,
+  },
+  vote_count: {
+    type: Number,
+  },
   translations: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Translation',
+      type: Schema.Types.ObjectId,
+      ref: 'Translations',
     },
   ],
 });

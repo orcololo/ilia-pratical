@@ -9,7 +9,7 @@
       "url": "https://opensource.org/licenses/GPL-3.0"
     }
   },
-  "host": "localhost:8080",
+  "host": "localhost:80",
   "basePath": "/",
 
   "schemes": ["http"],

@@ -1,22 +1,6 @@
 require('dotenv').config();
 const frisby = require('frisby');
-const { HTTP_PORT } = process.env;
-const port = HTTP_PORT || 8080;
-const baseURL = `http://localhost:${port}/movies/translations`;
-const mongoConnection = require('mongoose');
-const db_url = `mongodb://localhost:27017/ilia`;
-
-const options = {
-  useNewUrlParser: true,
-  connectTimeoutMS: 10000,
-  useUnifiedTopology: true,
-};
-
-beforeAll(async () => {
-  await mongoConnection.connect(db_url, options);
-  await mongoConnection.connection.dropDatabase();
-  await mongoConnection.connection.close();
-});
+const baseURL = `http://localhost:80/movies/translations`;
 
 it('all other endpoits must be 404:', () => {
   return frisby.get(baseURL).expect('status', 404);

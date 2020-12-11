@@ -28,8 +28,15 @@
 ```
 git clone https://github.com/orcololo/ilia-pratical
 cd ilia-pratical
-docker-compose up -d
 ```
+
+### 2) Popule o arquivo `.env.example` e depois o renomeie para .env.
+
+### 3) Rode a aplicação com docker-compose:
+
+`docker-compose up -d`
+
+### 4) Fim
 
 As requisições já podem ser feitas para os endpoints:  
 `http://localhost/movies/:id`  
